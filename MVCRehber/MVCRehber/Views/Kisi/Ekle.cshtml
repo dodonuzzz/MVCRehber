@@ -1,0 +1,52 @@
+﻿@model MVCRehber.Models.KisiModel.KisiEkleViewModel
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kişi Ekle</h2>
+
+<form class="form-horizontal" method="post" action="/Kisi/Ekle/">
+    <div class="form-group">
+        @*@Html.Label("Ad")
+            @Html.TextBox("Ad",null,new {@class="form-control"})*@
+        @Html.LabelFor(x => x.Kisi.Ad)
+        @Html.TextBoxFor(x => x.Kisi.Ad, null, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @*@Html.Label("Soyad")
+            @Html.TextBox("Soyad", null, new { @class = "form-control" })*@
+        @Html.LabelFor(x => x.Kisi.Soyad)
+        @Html.TextBoxFor(x => x.Kisi.Soyad, null, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @*@Html.Label("Telefon Numarası")
+            @Html.TextBox("tel_no", null, new { @class = "form-control" })*@
+        @Html.LabelFor(x => x.Kisi.tel_no)
+        @Html.TextBoxFor(x => x.Kisi.tel_no, null, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @*@Html.Label("Email")
+            @Html.TextBox("email", null, new { @class = "form-control" })*@
+        @Html.LabelFor(x => x.Kisi.email)
+        @Html.TextBoxFor(x => x.Kisi.email, null, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Kisi.SehirId)
+        @*<select class="form-control" name="SehirId">
+            <option value="1">İstanbul</option>
+            <option value="2">Bakü</option>
+            <option value="3">Atina</option>
+            <option value="4">Bükreş</option>
+            <option value="5">Tiflis</option>
+            <option value="6">Moskova</option>
+            <option value="7">Los Angeles</option>
+            <option value="8">Cape Town</option>
+            <option value="9">Santiago</option>
+            <option value="10">Sidney</option>
+        </select>*@
+        @Html.DropDownListFor(x => x.Kisi.SehirId, new SelectList(Model.Sehirler, "SehirId", "SehirAdi"), new { @class = "form-control" })
+    </div>    
+    <input type="submit" class="btn btn-primary" value="Kaydet" />
+</form>
+

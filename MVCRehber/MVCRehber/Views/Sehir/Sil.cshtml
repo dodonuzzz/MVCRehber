@@ -1,0 +1,41 @@
+﻿@model MVCRehber.Models.Entities.Sehir
+
+@{
+    ViewBag.Title = "Sil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Bu Şehri Silmek İstediğinizden Emin Misiniz ?</h3>
+<div>
+    <h4>Sehir</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SehirAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SehirAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UlkeAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UlkeAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Geri Dön", "Index")
+        </div>
+    }
+</div>

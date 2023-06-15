@@ -1,0 +1,24 @@
+﻿@model MVCRehber.Models.Entities.Kisi
+@{
+    ViewBag.Title = "MailGonder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Ad @Model.Soyad Kişisine Mail Gönder</h2>
+<form action="/Kisi/MailGonder/" method="post">
+    <div class="form-group">
+        <label>Mail Adresi</label>
+        <input type="text" class="form-control" value="@Model.email" name="MailAdres" readonly />
+    </div>
+    <div class="form-group">
+        <label>Başlık</label>
+        <input type="text" class="form-control" name="Baslik" />
+    </div>
+    <div class="form-group">
+        <label>Mesaj</label>
+        <input type="text" class="form-control" name="Mesaj" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gönder</button>
+</form>
+

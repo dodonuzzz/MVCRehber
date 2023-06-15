@@ -1,0 +1,19 @@
+﻿@model MVCRehber.Models.KisiModel.KisiDetayViewModel
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Kisi.Ad @Model.Kisi.Soyad Bilgileri</h2>
+
+<hr/>
+
+<dl class="dl-horizontal">
+    <dt>@Html.DisplayNameFor(x => x.Kisi.tel_no)</dt>
+    <dd>@Model.Kisi.tel_no</dd>
+    <dt>@Html.DisplayNameFor(x => x.Kisi.email)</dt>
+    <dd>@Model.Kisi.email</dd>
+    <dt>@Html.DisplayNameFor(x => x.Kisi.SehirId)</dt>
+    <dd>@Model.Kisi.Sehir.SehirAdi</dd>
+
+</dl>
