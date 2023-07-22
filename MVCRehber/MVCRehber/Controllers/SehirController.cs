@@ -46,7 +46,6 @@ namespace MVCRehber.Controllers
         // Aşırı gönderim saldırılarından korunmak için, bağlamak istediğiniz belirli özellikleri etkinleştirin, 
         // daha fazla bilgi için bkz. https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Ekle([Bind(Include = "SehirId,SehirAdi,UlkeAdi")] Sehir sehir)
         {
             if (ModelState.IsValid)
@@ -78,7 +77,6 @@ namespace MVCRehber.Controllers
         // Aşırı gönderim saldırılarından korunmak için, bağlamak istediğiniz belirli özellikleri etkinleştirin, 
         // daha fazla bilgi için bkz. https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Guncelle([Bind(Include = "SehirId,SehirAdi,UlkeAdi")] Sehir sehir)
         {
             if (ModelState.IsValid)
@@ -106,8 +104,7 @@ namespace MVCRehber.Controllers
         }
 
         // POST: Sehir/Delete/5
-        [HttpPost, ActionName("Sil")]
-        [ValidateAntiForgeryToken]
+        [HttpPost, ActionName("Sil")]        
         public ActionResult DeleteConfirmed(int id)
         {
             Sehir sehir = db.Sehirler.Find(id);

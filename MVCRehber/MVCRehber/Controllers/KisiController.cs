@@ -15,13 +15,12 @@ namespace MVCRehber.Controllers
         MvcRehberContext db = new MvcRehberContext();
         // GET: Kisi
         public ActionResult Index()
-        {
-            var model = new KisiIndexViewModel
-            {
-                Kisiler = db.Kisiler.ToList(),
-                Sehirler = db.Sehirler.ToList()
-            };
-            return View(model);
+        {                       
+                var model = new KisiIndexViewModel();
+                model.Kisiler = db.Kisiler.ToList();
+                model.Sehirler = db.Sehirler.ToList();
+
+                return View(model);                        
         }
         [HttpGet]
         public ActionResult Ekle()
@@ -143,7 +142,7 @@ namespace MVCRehber.Controllers
         
         [HttpPost]
         public ActionResult MailGonder(string MailAdres, string Baslik, string Mesaj)
-        {
+        {        
             try
             {
                 var gonderi_mail = new MailAddress("");
